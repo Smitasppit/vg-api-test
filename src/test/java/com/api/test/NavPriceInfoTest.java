@@ -61,8 +61,8 @@ public class NavPriceInfoTest extends TestBase {
             response.then().body("navPriceArray["+i+"].price.get(0).toString()", matchesRegex(priceregex));
             response.then().body("navPriceArray["+i+"].pricePeriodType.pricePeriodCode.get(0).toString()", equalTo("DAILY"));
             response.then().body("navPriceArray["+i+"].pricePeriodType.pricePeriodDesc.get(0).toString()", equalTo("Daily Price"));
-            response.then().body("navPriceArray["+i+"].priceStatusType.priceStatusCode.get(0).toString()", equalTo("FINAL"));
-            response.then().body("navPriceArray["+i+"].priceStatusType.priceStatusDesc.get(0).toString()", equalTo("Final Price"));
+            response.then().body("navPriceArray["+i+"].priceStatusType.priceStatusCode.get(0).toString()", AnyOf.anyOf(equalTo("FINAL"),equalTo("INTERIM")));
+            response.then().body("navPriceArray["+i+"].priceStatusType.priceStatusDesc.get(0).toString()", AnyOf.anyOf(equalTo("Final Price"),equalTo("Interim Price")));
             response.then().body("navPriceArray["+i+"].final.get(0).toString()", equalTo("true"));
         }
 
