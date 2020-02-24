@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [API Test Suite]">
+  <test thread-count="5" verbose="0" name="Api Tests(failed)">
+    <classes>
+      <class name="com.api.test.NavPriceInfoTest">
+        <methods>
+          <include name="cleanup"/>
+          <include name="verifyNavPriceArrayValues"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.api.test.NavPriceInfoTest -->
+    </classes>
+  </test> <!-- Api Tests(failed) -->
+</suite> <!-- Failed suite [API Test Suite] -->
