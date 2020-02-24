@@ -27,7 +27,9 @@ public class NavPriceInfoTest extends TestBase {
     @Test(priority = 1, description = "Test to verify all the NAV values")
     public void verifyNavPriceArrayValues() {
 
-        RestAssured.baseURI = props.getProperty("api.url");;
+        String env =  props.getProperty("environment.prefix");
+        RestAssured.baseURI = props.getProperty(env+".api.url");
+      
         Response response = null;
         String jsonAsString;
 
@@ -39,7 +41,7 @@ public class NavPriceInfoTest extends TestBase {
 
         response = RestAssured.given()
                 .when()
-                .get(props.getProperty("api.path"));
+                .get(props.getProperty(env+".api.path"));
         System.out.println("Response is" + response.getBody().prettyPrint());
         jsonAsString = response.asString();
         ArrayList<Map<String,?>> jsonAsArrayList = from(jsonAsString).get("navPriceArray");
