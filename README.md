@@ -1,4 +1,4 @@
-# API TEEST
+# API TEST
 
 ## Installation
  ```
